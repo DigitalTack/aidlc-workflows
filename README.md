@@ -29,16 +29,16 @@ AI-DLC uses [Amazon Q Rules](https://docs.aws.amazon.com/amazonq/latest/qdevelop
 Copy the AI-DLC workflow to your project's workspace under the `<project-root>/.amazonq` folder:
 ```
 mkdir -p .amazonq/rules 
-cp -R ../aidlc-workflows/aidlc-rules/aws-aidlc-rules .amazonq/rules/ 
-cp -R ../aidlc-workflows/aidlc-rules/aws-aidlc-rule-details .amazonq/
+cp -R ../aidlc-workflows/aidlc-rules/aidlc-rules .amazonq/rules/ 
+cp -R ../aidlc-workflows/aidlc-rules/aidlc-rule-details .amazonq/
 ```
 
 To confirm that the Amazon Q Rules are correctly loaded in your IDE, follow these steps:
 
 1. In the Amazon Q Chat window, locate the `Rules` button in the lower right corner and click on it.
-2. Verify that you see entries for `.amazonq/rules/aws-aidlc-rules` in the displayed list of rules.
+2. Verify that you see entries for `.amazonq/rules/aidlc-rules` in the displayed list of rules.
 
-If you do not see the `aws-aidlc-rules` rules loaded, please check the directory where you previously issued the `mkdir` and `cp` commands.  
+If you do not see the `aidlc-rules` rules loaded, please check the directory where you previously issued the `mkdir` and `cp` commands.  
 
 ![AI-DLC Rules in Q Developer IDE](./assets/images/q-ide-aidlc-rules-loaded.png?raw=true "AI-DLC Rules in Q Developer")
 
@@ -50,19 +50,39 @@ Copy the AI-DLC workflow to your project's workspace under the `<project-root>/.
 
 ```bash
 mkdir -p .kiro/steering
-cp -R ../aidlc-workflows/aidlc-rules/aws-aidlc-rules .kiro/steering/
-cp -R ../aidlc-workflows/aidlc-rules/aws-aidlc-rule-details .kiro/
+cp -R ../aidlc-workflows/aidlc-rules/aidlc-rules .kiro/steering/
+cp -R ../aidlc-workflows/aidlc-rules/aidlc-rule-details .kiro/
 ```
 
 To confirm that the AI-DLC rules are correctly loaded in your Kiro CLI, follow these steps:
 
 1. Start Kiro CLI: `kiro-cli`
 2. Check your context contents: `/context show`
-3. Verify that you see all entries for `.kiro/steering/aws-aidlc-rules` in the displayed list of rules.
+3. Verify that you see all entries for `.kiro/steering/aidlc-rules` in the displayed list of rules.
 
-If you do not see the `aws-aidlc-rules` rules loaded, please check the directory where you previously issued the `mkdir` and `cp` commands.  
+If you do not see the `aidlc-rules` rules loaded, please check the directory where you previously issued the `mkdir` and `cp` commands.  
 
 ![AI-DLC Rules in Kiro CLI](./assets/images/kiro-cli-aidlc-rules-loaded.png?raw=true "AI-DLC Rules in Kiro CLI")
+
+### Codex
+
+Codex uses an `agents.md` entrypoint for agent configuration. To activate AI-DLC in your project, copy the Codex rules into your project's workspace under the `<project-root>/.codex` folder.
+
+```bash
+mkdir -p .codex
+cp -R ../aidlc-workflows/.codex/. .codex/
+```
+
+To confirm the Codex rules are correctly loaded:
+
+1. Ensure `.codex/agents.md` exists in your project root.
+2. Verify the file references `.codex/aidlc-rules/core-workflow.md` and `.codex/aidlc-rule-details/`.
+
+Example kickoff message for Codex:
+
+```
+Using AI-DLC, I want to add a health check endpoint to my service.
+```
 
 ### Usage
 
