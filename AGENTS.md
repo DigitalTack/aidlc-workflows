@@ -13,6 +13,10 @@ This file is the Codex entry point for the AI-DLC workflow.
 - Ensure audit logging is written to `aidlc-docs/audit.md` with raw user input and timestamps per the workflow rules.
 - When asking questions, use the required multiple-choice format and [Answer]: tag per the question-format guide.
 
+## Default options
+- We prefer "User Journey" based user stories.
+- For acceptance criteria, we prefer detailed acceptance criteria written using Gherkin syntax.
+- For user stories granularity, we prefer Fine-grained stories split into small implementable slices.
 
 ## Folder structure
 
@@ -59,3 +63,6 @@ Always run the appropriate checks before committing.
 - The infrastructure layer may reference the infrastructure, application and domain layers.
 - The application layer may reference the application and domain layers.
 - The domain layer must only reference code from the domain layer.
+
+## Documentation
+- The API needs to be documented with Swagger.
